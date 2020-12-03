@@ -13,6 +13,12 @@ public class Medicine {
 		this.medicinePrice = medicinePrice;
 	}
 
+	@Override
+	public String toString() {
+		return "medicine id:" + medicineId + "\n medicine name:" + medicineName + "\n medicine description:"
+				+ medicineDescription + "\n medicine price:" + medicinePrice + "\n ";
+	}
+
 	public int getMedicineId() {
 		return medicineId;
 	}
