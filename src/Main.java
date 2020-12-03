@@ -17,6 +17,7 @@ public class Main {
 			System.out.println("1\t  Medicine management");
 			System.out.println("2\t  Phrmacist management");
 			System.out.println("3\t  Customer management");
+			System.out.println("4\t  Exit");
 
 			System.out.println("Choix :");
 			int choix = scanner.nextInt();
@@ -30,6 +31,7 @@ public class Main {
 					System.out.println("2\t Modify a medicine");
 					System.out.println("3\t Remove a medicine");
 					System.out.println("4\t Find a medicine");
+					System.out.println("5\t Exit medicine menu");
 
 					System.out.println("\n Please enter your choice:");
 
@@ -132,6 +134,20 @@ public class Main {
 						break;
 					case 4:
 						System.out.println("Find a medicine");
+						String searchedMedicine = scanner.next();
+
+						for (Medicine m : medicineList) {
+							if (m.getMedicineName().equals(searchedMedicine)) {
+								System.out.println(m.toString());
+							}
+						}
+
+						break;
+					case 5:
+						System.out.println("Exit ....");
+
+						var1 = false;
+						var = true;
 						break;
 					default:
 						System.out.println("Invalid choice");
