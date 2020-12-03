@@ -1,5 +1,5 @@
 
-public class Customer extends Person {
+public class Customer extends Pharmacist {
 	private int badge;
 
 	public Customer(int id, String fristName, String lastName, int telephoneNumber, String email, int badge) {
