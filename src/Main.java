@@ -4,9 +4,10 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<Medicine> medicineList = new ArrayList<Medicine>();
+		ArrayList<Pharmacist> pharmacistList = new ArrayList<Pharmacist>();
+		
 
 		boolean var = true;
 		// Display the title of the chosen module
@@ -30,6 +31,7 @@ public class Main {
 					System.out.println("2\t Modify a medicine");
 					System.out.println("3\t Remove a medicine");
 					System.out.println("4\t Find a medicine");
+					System.out.println("5\t show a medicines");
 
 					System.out.println("\n Please enter your choice:");
 
@@ -83,17 +85,17 @@ public class Main {
 								System.out.println("Name");
 								String newName = scanner.next();
 								medicineList.get(i).setMedicineName(newName);
-								;
+						
 
 								System.out.println("medicine Description");
 								String newDescription = scanner.next();
 								medicineList.get(i).setMedicineDescription(newDescription);
-								;
+								
 
 								System.out.println("Price");
 								int newPrice = scanner.nextInt();
 								medicineList.get(i).setMedicinePrice(newPrice);
-								;
+								
 
 								System.out.println("Edited successfully :");
 
@@ -133,6 +135,139 @@ public class Main {
 					case 4:
 						System.out.println("Find a medicine");
 						break;
+					case 5:
+						System.out.println(medicineList);
+						break;
+					default:
+						System.out.println("Invalid choice");
+					}// end of switch
+				}
+				break;
+			case 2 : 
+				boolean var2 = true;
+				while (var2) {
+
+					// Display the menu
+					System.out.println("1\t Add a Phrmacist");
+					System.out.println("2\t Modify a Phrmacist");
+					System.out.println("3\t Remove a Phrmacist");
+					System.out.println("4\t Find a Phrmacist");
+					System.out.println("5\t show a Phrmacists");
+
+					System.out.println("\n Please enter your choice:");
+
+					// Get user's choice
+					int choice = scanner.nextInt();
+					switch (choice) {
+					case 1:
+						System.out.println("Add a Phrmacist Id \n");
+						int pharmacistId = scanner.nextInt();
+						System.out.println("Add a Phrmacist first name \n");
+						String firstName = scanner.next();
+						System.out.println("Add a Phrmacist last name \n");
+						String lastName = scanner.next();
+						System.out.println("Add a Phrmacist phone number  \n");
+						String phone = scanner.next();
+						System.out.println("Add a Phrmacist Email  \n");
+						String Email = scanner.next();
+						Pharmacist Pharmacist = new Pharmacist(pharmacistId, firstName, lastName, phone,Email);
+						pharmacistList.add(Pharmacist);// adding Medicine class object
+						System.out.println("added successfully");
+
+						break;
+					case 2:
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
+								" phone ", "email");
+						System.out.println();
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+
+						for (int i = 0; i < pharmacistList.size(); i++) {
+							System.out.format("%10s %10s %10s %10s %10s %10s", i + 1, pharmacistList.get(i).getId(),
+									pharmacistList.get(i).getFristName(), pharmacistList.get(i).getLastName(),
+									pharmacistList.get(i).getTelephoneNumber(), pharmacistList.get(i).getEmail());
+							System.out.println();
+						}
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+
+						System.out.println("Select ID to  modif");
+
+						int idSelected = scanner.nextInt() - 1;
+
+						for (int i = 0; i < pharmacistList.size(); i++) {
+							if (i == idSelected) {
+
+								System.out.println("ID");
+								int newID = scanner.nextInt();
+								pharmacistList.get(i).setId(newID); 
+
+								System.out.println("pharmacist  first Name");
+								String newFirstName = scanner.next();
+								pharmacistList.get(i).setFristName(newFirstName);;
+						
+
+								System.out.println("pharmacist last name");
+								String newLastNme = scanner.next();
+								pharmacistList.get(i).setLastName(newLastNme);
+								
+
+								System.out.println("pharmacist phone number");
+								String newPhone = scanner.next();
+								pharmacistList.get(i).setTelephoneNumber(newPhone);
+								
+								System.out.println("pharmacist email");
+								String newEmail = scanner.next();
+								pharmacistList.get(i).setEmail(newEmail);
+
+								System.out.println("Edited successfully :");
+
+							} else {
+								System.out.println("id does not exist in the table");
+
+							}
+
+						}
+
+						break;
+					case 3:
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
+								" phone ", "email");
+						System.out.println();
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+
+						for (int i = 0; i < pharmacistList.size(); i++) {
+							System.out.format("%10s %10s %10s %10s %10s %10s", i + 1, pharmacistList.get(i).getId(),
+									pharmacistList.get(i).getFristName(), pharmacistList.get(i).getLastName(),
+									pharmacistList.get(i).getTelephoneNumber(), pharmacistList.get(i).getEmail());
+							System.out.println();
+						}
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+
+						System.out.println("\n Insert the id u want to remove");
+						pharmacistList.remove(scanner.nextInt() - 1);
+
+						System.out.println("Removed successfully");
+
+						break;
+					case 4:
+						System.out.println("Find a pharmacist");
+						break;
+					case 5:
+						// pharmacistList
+						//.stream().sorted()
+						//.collect(Collectors.toList());
+						//System.out.println(pharmacistList);
+						 pharmacistList.forEach(System.out::println);
+						
+
+						break;
 					default:
 						System.out.println("Invalid choice");
 					}// end of switch
@@ -147,5 +282,6 @@ public class Main {
 		}
 
 	}
+
 
 }
