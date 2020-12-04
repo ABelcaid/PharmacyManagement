@@ -1,13 +1,15 @@
+package Pharmacy;
+
 public class Pharmacist {
 	private int id;
-	private String fristName;
+	private String firstName;
 	private String lastName;
-	private String telephoneNumber;
+	private int telephoneNumber;
 	private String email;
 
-	public Pharmacist(int id, String fristName, String lastName, String telephoneNumber, String email) {
+	public Pharmacist(int id, String fristName, String lastName, int telephoneNumber, String email) {
 		this.id = id;
-		this.fristName = fristName;
+		this.firstName = fristName;
 		this.lastName = lastName;
 		this.telephoneNumber = telephoneNumber;
 		this.email = email;
@@ -22,11 +24,11 @@ public class Pharmacist {
 	}
 
 	public String getFristName() {
-		return fristName;
+		return firstName;
 	}
 
 	public void setFristName(String fristName) {
-		this.fristName = fristName;
+		this.firstName = fristName;
 	}
 
 	public String getLastName() {
@@ -37,11 +39,11 @@ public class Pharmacist {
 		this.lastName = lastName;
 	}
 
-	public String getTelephoneNumber() {
+	public int getTelephoneNumber() {
 		return telephoneNumber;
 	}
 
-	public void setTelephoneNumber(String telephoneNumber) {
+	public void setTelephoneNumber(int telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
 
@@ -51,6 +53,12 @@ public class Pharmacist {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Pharmacist [id="+ id + "\", firstName=" + firstName + "\", lastName=" + lastName + "\", telephoneNumber=" + telephoneNumber + "\" email="+ email +"]";
 	}
 
 }
