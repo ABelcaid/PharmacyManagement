@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
 import java.util.Comparator;
+import java.util.Scanner;
+
 public class Main {
-	 public static Comparator<Customer> NameComparator = new Comparator<Customer>() {
 
-			public int compare(Customer c1, Customer c2) {
-			   String customerName1 = c1.getFristName().toUpperCase();
-			   String customerName2 = c2.getFristName().toUpperCase();
+	public static Comparator<Customer> NameComparator = new Comparator<Customer>() {
 
-			   //ascending order
-			   return customerName1.compareTo(customerName2);
+		public int compare(Customer c1, Customer c2) {
+			String customerName1 = c1.getFristName().toUpperCase();
+			String customerName2 = c2.getFristName().toUpperCase();
 
-			   //descending order
-			   //return StudentName2.compareTo(StudentName1);
-		    }};
-		   
+			// ascending order
+			return customerName1.compareTo(customerName2);
+
+		}
+	};
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -323,54 +323,6 @@ public class Main {
 					}// end of switch
 				}
 				break;
-<<<<<<< HEAD
-			case 3 : boolean var3 = true;
-			while (var3) {
-
-				// Display the menu
-				System.out.println("1\t Add a Customer");
-				System.out.println("2\t Modify a Customer");
-				System.out.println("3\t Remove a Customer");
-				System.out.println("4\t Find a Customer");
-				System.out.println("5\t show a Customer");
-
-				System.out.println("\n Please enter your choice:");
-
-				// Get user's choice
-				int choice = scanner.nextInt();
-				switch (choice) {
-				case 1:
-					System.out.println("Add a Customer Id \n");
-					int pharmacistId = scanner.nextInt();
-					System.out.println("Add a Customer first name \n");
-					String firstName = scanner.next();
-					System.out.println("Add a Customer last name \n");
-					String lastName = scanner.next();
-					System.out.println("Add a Customer phone number  \n");
-					String phone = scanner.next();
-					System.out.println("Add a Customer Email  \n");
-					String Email = scanner.next();
-					System.out.println("Add a Customer badge  \n");
-					int badge = scanner.nextInt();
-					Customer customer = new Customer(pharmacistId, firstName, lastName, phone,Email, badge);
-					customerList.add(customer);// adding Customer class object
-					System.out.println("added successfully");
-
-					break;
-				case 2:
-					System.out.println(
-							"-----------------------------------------------------------------------------");
-					System.out.printf("%7s %7s %10s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
-							" phone ", "email", "badge");
-					System.out.println();
-					System.out.println(
-							"-----------------------------------------------------------------------------");
-
-					for (int i = 0; i < customerList.size(); i++) {
-						System.out.format("%10s %10s %10s %10s %10s %10s %10s", i + 1, customerList.get(i).getId(),
-								customerList.get(i).getFristName(), customerList.get(i).getLastName(),
-								customerList.get(i).getTelephoneNumber(), customerList.get(i).getEmail(), customerList.get(i).getBadge());
-=======
 			case 3:
 				boolean var3 = true;
 				while (var3) {
@@ -382,7 +334,8 @@ public class Main {
 					System.out.println("4\t Find a Customer");
 					System.out.println("5\t Show all Customers");
 					System.out.println("6\t Show all Loyal customers");
-					System.out.println("7\t Exit");
+					System.out.println("7\t Sort customers");
+					System.out.println("8\t Exit");
 
 					System.out.println("\n Please enter your choice:");
 
@@ -412,7 +365,6 @@ public class Main {
 								"-----------------------------------------------------------------------------");
 						System.out.printf("%7s %7s %10s %10s %10s %10s %10s", "Id in table", "Id", " first Name",
 								" last name", " phone ", "email", "badge");
->>>>>>> 52f443a0b1ab1f898c8f6291bba48d4c9abfd7a3
 						System.out.println();
 						System.out.println(
 								"-----------------------------------------------------------------------------");
@@ -506,32 +458,12 @@ public class Main {
 								System.out.println(Cus.toString());
 							}
 						}
-<<<<<<< HEAD
-					}
-					break;
-				case 5:
-					Collections.sort(customerList, NameComparator );
-					System.out.println(
-							"-----------------------------------------------------------------------------");
-					System.out.printf("%7s %7s %10s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
-							" phone ", "email", "badge");
-					System.out.println();
-					System.out.println(
-							"-----------------------------------------------------------------------------");
-
-					for (int i = 0; i < customerList.size(); i++) {
-						System.out.format("%10s %10s %10s %10s %10s %10s %10s", i + 1,customerList.get(i).getId(),
-								customerList.get(i).getFristName(), customerList.get(i).getLastName(),
-								customerList.get(i).getTelephoneNumber(), customerList.get(i).getEmail(), 
-								customerList.get(i).getBadge()) ;
-=======
 						break;
 					case 5:
 						System.out.println(
 								"-----------------------------------------------------------------------------");
 						System.out.printf("%7s %7s %10s %10s %10s %10s %10s", "Id in table", "Id", " first Name",
 								" last name", " phone ", "email", "badge");
->>>>>>> 52f443a0b1ab1f898c8f6291bba48d4c9abfd7a3
 						System.out.println();
 						System.out.println(
 								"-----------------------------------------------------------------------------");
@@ -560,6 +492,7 @@ public class Main {
 
 						for (int i = 0; i < customerList.size(); i++) {
 							if (customerList.get(i).getBadge() >= 3) {
+
 								System.out.format("%10s %10s %10s %10s %10s %10s %10s", i + 1,
 										customerList.get(i).getId(), customerList.get(i).getFristName(),
 										customerList.get(i).getLastName(), customerList.get(i).getTelephoneNumber(),
@@ -572,6 +505,25 @@ public class Main {
 
 						break;
 					case 7:
+						Collections.sort(customerList, NameComparator);
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+						System.out.printf("%7s %7s %10s %10s %10s %10s %10s", "Id in table", "Id", " first Name",
+								" last name", " phone ", "email", "badge");
+						System.out.println();
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+						for (int i = 0; i < customerList.size(); i++) {
+							System.out.format("%10s %10s %10s %10s %10s %10s %10s", i + 1, customerList.get(i).getId(),
+									customerList.get(i).getFristName(), customerList.get(i).getLastName(),
+									customerList.get(i).getTelephoneNumber(), customerList.get(i).getEmail(),
+									customerList.get(i).getBadge());
+							System.out.println();
+						}
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+						break;
+					case 8:
 						System.out.println("Exit ....");
 
 						var3 = false;
