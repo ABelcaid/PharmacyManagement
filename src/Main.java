@@ -1,7 +1,21 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
-
+import java.util.Comparator;
 public class Main {
+	 public static Comparator<Customer> NameComparator = new Comparator<Customer>() {
+
+			public int compare(Customer c1, Customer c2) {
+			   String customerName1 = c1.getFristName().toUpperCase();
+			   String customerName2 = c2.getFristName().toUpperCase();
+
+			   //ascending order
+			   return customerName1.compareTo(customerName2);
+
+			   //descending order
+			   //return StudentName2.compareTo(StudentName1);
+		    }};
+		   
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -336,8 +350,8 @@ public class Main {
 					String Email = scanner.next();
 					System.out.println("Add a Customer badge  \n");
 					int badge = scanner.nextInt();
-					Customer Customer = new Customer(pharmacistId, firstName, lastName, phone,Email, badge);
-					customerList.add(Customer);// adding Customer class object
+					Customer customer = new Customer(pharmacistId, firstName, lastName, phone,Email, badge);
+					customerList.add(customer);// adding Customer class object
 					System.out.println("added successfully");
 
 					break;
@@ -437,6 +451,7 @@ public class Main {
 					}
 					break;
 				case 5:
+					Collections.sort(customerList, NameComparator );
 					System.out.println(
 							"-----------------------------------------------------------------------------");
 					System.out.printf("%7s %7s %10s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
