@@ -7,6 +7,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<Medicine> medicineList = new ArrayList<Medicine>();
 		ArrayList<Pharmacist> pharmacistList = new ArrayList<Pharmacist>();
+		ArrayList<Customer> customerList = new ArrayList<Customer>();
 		
 
 		boolean var = true;
@@ -276,13 +277,15 @@ public class Main {
 						break;
 					case 4:
 						System.out.println("Find a pharmacist");
+						String searchedPharmacist = scanner.next();
+
+						for (Pharmacist phar : pharmacistList) {
+							if (phar.getFristName().equals(searchedPharmacist)) {
+								System.out.println(phar.toString());
+							}
+						}
 						break;
 					case 5:
-						// pharmacistList
-						//.stream().sorted()
-						//.collect(Collectors.toList());
-						//System.out.println(pharmacistList);
-						 //pharmacistList.forEach(System.out::println);
 						System.out.println(
 								"-----------------------------------------------------------------------------");
 						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
@@ -305,7 +308,160 @@ public class Main {
 					}// end of switch
 				}
 				break;
+			case 3 : boolean var3 = true;
+			while (var3) {
 
+				// Display the menu
+				System.out.println("1\t Add a Customer");
+				System.out.println("2\t Modify a Customer");
+				System.out.println("3\t Remove a Customer");
+				System.out.println("4\t Find a Customer");
+				System.out.println("5\t show a Customer");
+
+				System.out.println("\n Please enter your choice:");
+
+				// Get user's choice
+				int choice = scanner.nextInt();
+				switch (choice) {
+				case 1:
+					System.out.println("Add a Customer Id \n");
+					int pharmacistId = scanner.nextInt();
+					System.out.println("Add a Customer first name \n");
+					String firstName = scanner.next();
+					System.out.println("Add a Customer last name \n");
+					String lastName = scanner.next();
+					System.out.println("Add a Customer phone number  \n");
+					String phone = scanner.next();
+					System.out.println("Add a Customer Email  \n");
+					String Email = scanner.next();
+					System.out.println("Add a Customer badge  \n");
+					int badge = scanner.nextInt();
+					Customer Customer = new Customer(pharmacistId, firstName, lastName, phone,Email, badge);
+					customerList.add(Customer);// adding Customer class object
+					System.out.println("added successfully");
+
+					break;
+				case 2:
+					System.out.println(
+							"-----------------------------------------------------------------------------");
+					System.out.printf("%7s %7s %10s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
+							" phone ", "email", "badge");
+					System.out.println();
+					System.out.println(
+							"-----------------------------------------------------------------------------");
+
+					for (int i = 0; i < customerList.size(); i++) {
+						System.out.format("%10s %10s %10s %10s %10s %10s %10s", i + 1, customerList.get(i).getId(),
+								customerList.get(i).getFristName(), customerList.get(i).getLastName(),
+								customerList.get(i).getTelephoneNumber(), customerList.get(i).getEmail(), customerList.get(i).getBadge());
+						System.out.println();
+					}
+					System.out.println(
+							"-----------------------------------------------------------------------------");
+
+					System.out.println("Select ID to  modif");
+
+					int idSelected = scanner.nextInt() - 1;
+
+					for (int i = 0; i < customerList.size(); i++) {
+						if (i == idSelected) {
+
+							System.out.println("ID");
+							int newID = scanner.nextInt();
+							customerList.get(i).setId(newID); 
+
+							System.out.println("Customer  first Name");
+							String newFirstName = scanner.next();
+							customerList.get(i).setFristName(newFirstName);;
+					
+
+							System.out.println("Customer last name");
+							String newLastNme = scanner.next();
+							customerList.get(i).setLastName(newLastNme);
+							
+
+							System.out.println("Customer phone number");
+							String newPhone = scanner.next();
+							customerList.get(i).setTelephoneNumber(newPhone);
+							
+							System.out.println("Customer email");
+							String newEmail = scanner.next();
+							customerList.get(i).setEmail(newEmail);
+
+							System.out.println("Customer badge");
+							int newbadge = scanner.nextInt();
+							customerList.get(i).setBadge(newbadge);
+							System.out.println("Edited successfully :");
+
+						} else {
+							System.out.println("id does not exist in the table");
+
+						}
+
+					}
+
+					break;
+				case 3:
+					System.out.println(
+							"-----------------------------------------------------------------------------");
+					System.out.printf("%10s %10s %10s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
+							" phone ", "email", "badge");
+					System.out.println();
+					System.out.println(
+							"-----------------------------------------------------------------------------");
+
+					for (int i = 0; i < customerList.size(); i++) {
+						System.out.format("%10s %10s %10s %10s %10s %10s %10s", i + 1,customerList.get(i).getId(),
+								customerList.get(i).getFristName(), customerList.get(i).getLastName(),
+								customerList.get(i).getTelephoneNumber(), customerList.get(i).getEmail(), 
+								customerList.get(i).getBadge()) ;
+						System.out.println();
+					}
+					System.out.println(
+							"-----------------------------------------------------------------------------");
+
+					System.out.println("\n Insert the id u want to remove");
+					customerList.remove(scanner.nextInt() - 1);
+
+					System.out.println("Removed successfully");
+
+					break;
+				case 4:
+					System.out.println("Find a Customer");
+					String searchedcustomer = scanner.next();
+
+					for (Pharmacist Cus : customerList) {
+						if (Cus.getFristName().equals(searchedcustomer)) {
+							System.out.println(Cus.toString());
+						}
+					}
+					break;
+				case 5:
+					System.out.println(
+							"-----------------------------------------------------------------------------");
+					System.out.printf("%7s %7s %10s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
+							" phone ", "email", "badge");
+					System.out.println();
+					System.out.println(
+							"-----------------------------------------------------------------------------");
+
+					for (int i = 0; i < customerList.size(); i++) {
+						System.out.format("%10s %10s %10s %10s %10s %10s %10s", i + 1,customerList.get(i).getId(),
+								customerList.get(i).getFristName(), customerList.get(i).getLastName(),
+								customerList.get(i).getTelephoneNumber(), customerList.get(i).getEmail(), 
+								customerList.get(i).getBadge()) ;
+						System.out.println();
+					}
+					System.out.println(
+							"-----------------------------------------------------------------------------");
+					
+
+					break;
+				default:
+					System.out.println("Invalid choice");
+				}// end of switch
+			}
+			break;
 			default:
 
 				System.out.println("invalid!!!!!!!!!!!");
