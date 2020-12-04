@@ -32,11 +32,10 @@ public class Main {
 					System.out.println("2\t Modify a medicine");
 					System.out.println("3\t Remove a medicine");
 					System.out.println("4\t Find a medicine");
-<<<<<<< HEAD
 					System.out.println("5\t show a medicines");
-=======
+
 					System.out.println("5\t Exit medicine menu");
->>>>>>> 6d31a29b383da281066bf50ae7cfee53268e5c16
+
 
 					System.out.println("\n Please enter your choice:");
 
@@ -154,7 +153,7 @@ public class Main {
 						var1 = false;
 						var = true;
 						break;
-					case 5:
+					case 6:
 						System.out.println(medicineList);
 						break;
 					default:
@@ -283,7 +282,21 @@ public class Main {
 						//.stream().sorted()
 						//.collect(Collectors.toList());
 						//System.out.println(pharmacistList);
-						 pharmacistList.forEach(System.out::println);
+						 //pharmacistList.forEach(System.out::println);
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
+								" phone ", "email");
+						System.out.println();
+						System.out.println(
+								"-----------------------------------------------------------------------------");
+
+						for (int i = 0; i < pharmacistList.size(); i++) {
+							System.out.format("%10s %10s %10s %10s %10s %10s", i + 1, pharmacistList.get(i).getId(),
+									pharmacistList.get(i).getFristName(), pharmacistList.get(i).getLastName(),
+									pharmacistList.get(i).getTelephoneNumber(), pharmacistList.get(i).getEmail());
+							System.out.println();
+						}
 						
 
 						break;
@@ -302,9 +315,8 @@ public class Main {
 
 	}
 
-<<<<<<< HEAD
+
 
 }
-=======
-}
->>>>>>> 6d31a29b383da281066bf50ae7cfee53268e5c16
+
+

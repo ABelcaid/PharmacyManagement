@@ -3,10 +3,10 @@ public class Pharmacist {
 	private int id;
 	private String fristName;
 	private String lastName;
-	private int telephoneNumber;
+	private String telephoneNumber;
 	private String email;
 
-	public Pharmacist(int id, String fristName, String lastName, int telephoneNumber, String email) {
+	public Pharmacist(int id, String fristName, String lastName, String telephoneNumber, String email) {
 		this.id = id;
 		this.fristName = fristName;
 		this.lastName = lastName;
@@ -38,11 +38,11 @@ public class Pharmacist {
 		this.lastName = lastName;
 	}
 
-	public int getTelephoneNumber() {
+	public String getTelephoneNumber() {
 		return telephoneNumber;
 	}
 
-	public void setTelephoneNumber(int telephoneNumber) {
+	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
 

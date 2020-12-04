@@ -2,7 +2,7 @@
 public class Customer extends Pharmacist {
 	private int badge;
 
-	public Customer(int id, String fristName, String lastName, int telephoneNumber, String email, int badge) {
+	public Customer(int id, String fristName, String lastName, String telephoneNumber, String email, int badge) {
 		super(id, fristName, lastName, telephoneNumber, email);
 		this.badge = badge;
 	}
