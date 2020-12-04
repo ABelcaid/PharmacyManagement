@@ -7,7 +7,6 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<Medicine> medicineList = new ArrayList<Medicine>();
 		ArrayList<Pharmacist> pharmacistList = new ArrayList<Pharmacist>();
-		
 
 		boolean var = true;
 		// Display the title of the chosen module
@@ -35,7 +34,6 @@ public class Main {
 					System.out.println("5\t show a medicines");
 
 					System.out.println("5\t Exit medicine menu");
-
 
 					System.out.println("\n Please enter your choice:");
 
@@ -89,17 +87,14 @@ public class Main {
 								System.out.println("Name");
 								String newName = scanner.next();
 								medicineList.get(i).setMedicineName(newName);
-						
 
 								System.out.println("medicine Description");
 								String newDescription = scanner.next();
 								medicineList.get(i).setMedicineDescription(newDescription);
-								
 
 								System.out.println("Price");
 								int newPrice = scanner.nextInt();
 								medicineList.get(i).setMedicinePrice(newPrice);
-								
 
 								System.out.println("Edited successfully :");
 
@@ -161,7 +156,7 @@ public class Main {
 					}// end of switch
 				}
 				break;
-			case 2 : 
+			case 2:
 				boolean var2 = true;
 				while (var2) {
 
@@ -188,7 +183,7 @@ public class Main {
 						String phone = scanner.next();
 						System.out.println("Add a Phrmacist Email  \n");
 						String Email = scanner.next();
-						Pharmacist Pharmacist = new Pharmacist(pharmacistId, firstName, lastName, phone,Email);
+						Pharmacist Pharmacist = new Pharmacist(pharmacistId, firstName, lastName, phone, Email);
 						pharmacistList.add(Pharmacist);// adding Medicine class object
 						System.out.println("added successfully");
 
@@ -196,8 +191,8 @@ public class Main {
 					case 2:
 						System.out.println(
 								"-----------------------------------------------------------------------------");
-						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
-								" phone ", "email");
+						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name",
+								" last name", " phone ", "email");
 						System.out.println();
 						System.out.println(
 								"-----------------------------------------------------------------------------");
@@ -220,22 +215,21 @@ public class Main {
 
 								System.out.println("ID");
 								int newID = scanner.nextInt();
-								pharmacistList.get(i).setId(newID); 
+								pharmacistList.get(i).setId(newID);
 
 								System.out.println("pharmacist  first Name");
 								String newFirstName = scanner.next();
-								pharmacistList.get(i).setFristName(newFirstName);;
-						
+								pharmacistList.get(i).setFristName(newFirstName);
+								;
 
 								System.out.println("pharmacist last name");
 								String newLastNme = scanner.next();
 								pharmacistList.get(i).setLastName(newLastNme);
-								
 
 								System.out.println("pharmacist phone number");
 								String newPhone = scanner.next();
 								pharmacistList.get(i).setTelephoneNumber(newPhone);
-								
+
 								System.out.println("pharmacist email");
 								String newEmail = scanner.next();
 								pharmacistList.get(i).setEmail(newEmail);
@@ -253,8 +247,8 @@ public class Main {
 					case 3:
 						System.out.println(
 								"-----------------------------------------------------------------------------");
-						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
-								" phone ", "email");
+						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name",
+								" last name", " phone ", "email");
 						System.out.println();
 						System.out.println(
 								"-----------------------------------------------------------------------------");
@@ -279,14 +273,14 @@ public class Main {
 						break;
 					case 5:
 						// pharmacistList
-						//.stream().sorted()
-						//.collect(Collectors.toList());
-						//System.out.println(pharmacistList);
-						 //pharmacistList.forEach(System.out::println);
+						// .stream().sorted()
+						// .collect(Collectors.toList());
+						// System.out.println(pharmacistList);
+						// pharmacistList.forEach(System.out::println);
 						System.out.println(
 								"-----------------------------------------------------------------------------");
-						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name", " last name",
-								" phone ", "email");
+						System.out.printf("%7s %7s %10s %10s %10s %10s", "Id in table", "Id", " first Name",
+								" last name", " phone ", "email");
 						System.out.println();
 						System.out.println(
 								"-----------------------------------------------------------------------------");
@@ -297,7 +291,6 @@ public class Main {
 									pharmacistList.get(i).getTelephoneNumber(), pharmacistList.get(i).getEmail());
 							System.out.println();
 						}
-						
 
 						break;
 					default:
@@ -315,8 +308,4 @@ public class Main {
 
 	}
 
-
-
 }
-
-
